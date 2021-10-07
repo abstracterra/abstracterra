@@ -1,7 +1,6 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Row, Col, Drawer } from "antd";
 import { withTranslation } from "react-i18next";
-import Container from "../../common/Container";
 import { SvgIcon } from "../../common/SvgIcon";
 import { Button } from "../../common/Button";
 import {
@@ -15,8 +14,113 @@ import {
   Outline,
   Span,
 } from "./styles";
+import { ConnectionProvider, WalletProvider } from "@solana/wallet-adapter-react";
+import { WalletDialogProvider } from "@solana/wallet-adapter-material-ui";
+import SolanaButton from "../SolanaButton";
+
+
+import { lazy } from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import * as anchor from "@project-serum/anchor";
+import { Component} from 'react';
+//UI Imports
+
+
+import { clusterApiUrl } from "@solana/web3.js";
+import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
+import {
+  getPhantomWallet,
+  getSlopeWallet,
+  getSolflareWallet,
+  getSolletWallet,
+  getSolletExtensionWallet,
+} from "@solana/wallet-adapter-wallets";
+
+
+import { createTheme, ThemeProvider } from "@material-ui/core";
+
+
+const Contact = lazy(() => import("../../components/ContactForm"));
+const MiddleBlock = lazy(() => import("../../components/MiddleBlock"));
+const Container = lazy(() => import("../../common/Container"));
+const ScrollToTop = lazy(() => import("../../common/ScrollToTop"));
+const ContentBlock = lazy(() => import("../../components/ContentBlock"));
+
+
+const treasury = new anchor.web3.PublicKey(
+  process.env.REACT_APP_TREASURY_ADDRESS!
+);
+
+const config = new anchor.web3.PublicKey(
+  process.env.REACT_APP_CANDY_MACHINE_CONFIG!
+);
+
+const candyMachineId = new anchor.web3.PublicKey(
+  process.env.REACT_APP_CANDY_MACHINE_ID!
+);
+
+const network = process.env.REACT_APP_SOLANA_NETWORK as WalletAdapterNetwork;
+
+const rpcHost = process.env.REACT_APP_SOLANA_RPC_HOST!;
+const connection = new anchor.web3.Connection(rpcHost);
+
+const startDateSeed = parseInt(process.env.REACT_APP_CANDY_START_DATE!, 10);
+
+const txTimeout = 30000; // milliseconds (confirm this works for your project)
+
+const theme = createTheme({
+    palette: {
+        type: 'dark',
+    },
+    overrides: {
+        MuiButtonBase: {
+            root: {
+                justifyContent: 'flex-start',
+            },
+        },
+        MuiButton: {
+            root: {
+                textTransform: undefined,
+                padding: '12px 16px',
+            },
+            startIcon: {
+                marginRight: 8,
+            },
+            endIcon: {
+                marginLeft: 8,
+            },
+        },
+    },
+});
+
+
+export interface HomeProps {
+  candyMachineId: anchor.web3.PublicKey;
+  config: anchor.web3.PublicKey;
+  connection: anchor.web3.Connection;
+  startDate: number;
+  treasury: anchor.web3.PublicKey;
+  txTimeout: number;
+}
+
 
 const Header = ({ t }: any) => {
+
+  const endpoint = useMemo(() => clusterApiUrl(network), []);
+
+  const wallets = useMemo(
+    () => [
+        getPhantomWallet(),
+        getSlopeWallet(),
+        getSolflareWallet(),
+        getSolletWallet({ network }),
+        getSolletExtensionWallet({ network })
+    ],
+    []
+  );
+
+
   const [visible, setVisibility] = useState(false);
 
   const showDrawer = () => {
@@ -37,22 +141,35 @@ const Header = ({ t }: any) => {
     };
     return (
       <>
-        <CustomNavLinkSmall onClick={() => scrollTo("about")}>
-          <Span>{t("About")}</Span>
+        <CustomNavLinkSmall >
+        <a href="https://discord.gg/rDYp2mC44A">
+            Twitter
+          </a>
         </CustomNavLinkSmall>
-        <CustomNavLinkSmall onClick={() => scrollTo("mission")}>
-          <Span>{t("Mission")}</Span>
+        <CustomNavLinkSmall>
+
+          <a href="https://discord.gg/rDYp2mC44A">
+            Discord
+          </a>
         </CustomNavLinkSmall>
-        <CustomNavLinkSmall onClick={() => scrollTo("product")}>
-          <Span>{t("Product")}</Span>
-        </CustomNavLinkSmall>
-        <CustomNavLinkSmall
-          style={{ width: "180px" }}
-          onClick={() => scrollTo("contact")}
-        >
-          <Span>
-            <Button>{t("Contact")}</Button>
-          </Span>
+        <CustomNavLinkSmall>
+        {/* <ThemeProvider theme={theme}>
+              <ConnectionProvider endpoint={endpoint}>
+                <WalletProvider wallets={wallets} autoConnect={true}>
+                  <WalletDialogProvider>
+                    <SolanaButton
+                      candyMachineId={candyMachineId}
+                      config={config}
+                      connection={connection}
+                      startDate={startDateSeed}
+                      treasury={treasury}
+                      txTimeout={txTimeout}
+                    />
+                  </WalletDialogProvider>
+                </WalletProvider>
+              </ConnectionProvider>
+            </ThemeProvider> */}
+            <button>Mint (soon)</button>
         </CustomNavLinkSmall>
       </>
     );
@@ -63,7 +180,7 @@ const Header = ({ t }: any) => {
       <Container>
         <Row justify="space-between">
           <LogoContainer to="/" aria-label="homepage">
-            <SvgIcon src="logo.svg" width="101px" height="64px" />
+            <SvgIcon src="logo.png" width="70px" height="64px" />
           </LogoContainer>
           <NotHidden>
             <MenuItem />

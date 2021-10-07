@@ -26,11 +26,20 @@ const MiddleBlock = ({ title, content, button, t }: MiddleBlockProps) => {
             <Col lg={24} md={24} sm={24} xs={24}>
               <h6>{t(title)}</h6>
               <Content>{t(content)}</Content>
-              {button && (
-                <Button name="submit" onClick={() => scrollTo("mission")}>
-                  {t(button)}
-                </Button>
-              )}
+              <Row className="margin-bottom" justify="space-between" align="middle">
+                <Col lg={9} md={9} sm={24} xs={24}>
+                  <div className="card-hero-left">
+                    <div> <p>Current Bid</p></div>
+                    <div> <h5>2 Sol</h5></div>
+                  </div>
+                </Col>
+                <Col lg={13} md={13} sm={24} xs={24}>
+                  <div className="card-hero-right">
+                    <div><p>Minting starts</p></div>
+                    <div><p>00 57 10 </p></div>
+                  </div>
+                </Col>
+              </Row>
             </Col>
           </ContentWrapper>
         </Row>

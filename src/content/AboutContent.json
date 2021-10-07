@@ -1,16 +1,16 @@
 {
-  "title": "Light, fast & responsive",
-  "text": "This template is ready to use, so you don't need to change anything at a component level, unless you want to customize the default styling.",
+  "title": "The Abstracterra portal ",
+  "text": "A portal came out of nowhere, creating the vast world of Abstracterra. After years of reasearch we can now safely go into it and come back by paying 2 sol",
   "section": [
     {
-      "title": "Why Antd?",
-      "content": "Ant Design is a React UI library that has a lot of easy-to-use components for building elegant UI.",
-      "icon": "notes.svg"
+      "title": "Rarity?",
+      "content": "Rarity is given by complexity. Each have a different unique style that fit into a category, Some more valuable than others!",
+      "icon": "/"
     },
     {
-      "title": "Why styled-components?",
-      "content": "Styled Components gives you total control over your components.",
-      "icon": "notes.svg"
+      "title": "How many styles?",
+      "content": "The Abstractera is home to 20 new different worlds. each with its own piece, different style. Maybe you will find more",
+      "icon": "/"
     }
   ]
 }
