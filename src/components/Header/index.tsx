@@ -142,7 +142,7 @@ const Header = ({ t }: any) => {
     return (
       <>
         <CustomNavLinkSmall >
-        <a href="https://discord.gg/rDYp2mC44A">
+        <a href="https://twitter.com/AbstracTerra">
             Twitter
           </a>
         </CustomNavLinkSmall>
