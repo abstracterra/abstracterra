@@ -96,7 +96,7 @@ const Home = () => {
                   <Fade delay={500} direction="up">
                     <div className="card-hero-left">
                       <div> <p>Price</p></div>
-                      <div> <h5>2 Sol</h5></div>
+                      <div> <h5>1.5 Sol</h5></div>
                     </div>
                   </Fade>
                   </Col>
