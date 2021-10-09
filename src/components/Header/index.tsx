@@ -153,7 +153,7 @@ const Header = ({ t }: any) => {
           </a>
         </CustomNavLinkSmall>
         <CustomNavLinkSmall>
-        {/* <ThemeProvider theme={theme}>
+        <ThemeProvider theme={theme}>
               <ConnectionProvider endpoint={endpoint}>
                 <WalletProvider wallets={wallets} autoConnect={true}>
                   <WalletDialogProvider>
@@ -168,8 +168,8 @@ const Header = ({ t }: any) => {
                   </WalletDialogProvider>
                 </WalletProvider>
               </ConnectionProvider>
-            </ThemeProvider> */}
-            <button>Mint (soon)</button>
+            </ThemeProvider>
+            {/* <button>Mint (soon)</button> */}
         </CustomNavLinkSmall>
       </>
     );
