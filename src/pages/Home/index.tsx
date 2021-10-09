@@ -86,6 +86,7 @@ const Home = () => {
             <Fade delay={0} direction="up">
               <h1>Explore the vast multiverses of Abstracterra</h1>
               </Fade>
+              
               <Fade delay={300} direction="up">
               <Content>Take the chance of being one of the few people who travel into the Abstracterra portal to different kind of worlds</Content>
               </Fade>
@@ -130,6 +131,8 @@ const Home = () => {
     </MiddleBlockSection>
 
 
+
+
       <ContentBlock
         type="left"
         title={AboutContent.title}
@@ -138,6 +141,92 @@ const Home = () => {
         icon="main.gif"
         id="about"
       />
+
+      <MiddleBlockSection>
+      <Row justify="center" align="middle">
+          <Col lg={22} md={22} sm={24} xs={24}>
+          <Fade delay={0} direction="up">
+            <h1>Roadmap</h1>
+          </Fade>
+            <ul className="timeline">
+              <li className="timeline-event">
+                <label className="timeline-event-icon"></label>
+                <div className="timeline-event-copy">
+                <Fade delay={100} direction="up">
+                  <p className="timeline-event-thumbnail">25%</p>
+                </Fade>
+                <Fade delay={120} direction="up">
+                  <h3>Early community plans</h3>
+                </Fade>
+                <Fade delay={140} direction="up">
+                  <h4>Plans for rollout early adapters</h4>
+                </Fade>
+                <Fade delay={160} direction="up">
+                  <p><strong>Everyone</strong>  Who joined the early stages of our project will benefit from low price minting that will happen randomly. Only people from the community will know when it happens. </p>
+                </Fade>
+                <Fade delay={180} direction="up">
+                  <p><strong>Giveaways of rare pieces</strong> We will also giveaway rare hollow pieces from our collections to the early rollouts.</p>
+                </Fade>
+                </div>
+              </li>
+              <li className="timeline-event">
+                <label className="timeline-event-icon"></label>
+                <div className="timeline-event-copy">
+                <Fade delay={100} direction="up">
+                  <p className="timeline-event-thumbnail">50%</p>
+                </Fade>
+                <Fade delay={120} direction="up">
+                  <h3>Minting</h3>
+                </Fade>
+                <Fade delay={140} direction="up">
+                  <h4>Price and how many</h4>
+                </Fade>
+                <Fade delay={160} direction="up">
+                  <p>We will officaly mint 3000 unique pieces of our collections. Pricing will be 2Sol per Piece. 110 of them have HOLLOW</p>
+                </Fade>
+                </div>
+              </li>
+              <li className="timeline-event">
+                <label className="timeline-event-icon"></label>
+                <div className="timeline-event-copy">
+                <Fade delay={100} direction="up">
+                  <p className="timeline-event-thumbnail">75%</p>
+                  </Fade>
+                  <Fade delay={120} direction="up">
+                  <h3>Royalties</h3>
+                  </Fade>
+                  <Fade delay={140} direction="up">
+                  <h4>Where the money goes</h4>
+                  </Fade>
+                  <Fade delay={160} direction="up">
+                  <p><strong>50%, 40%, 10%</strong>We will giveaway all the royalties money. 50% to our community, 40% to charity, 10% funding future project</p>
+                  </Fade>
+                </div>
+              </li>
+              <li className="timeline-event">
+                <label className="timeline-event-icon"></label>
+                <div className="timeline-event-copy">
+                <Fade delay={100} direction="up">
+                  <p className="timeline-event-thumbnail">100%</p>
+                </Fade>
+                <Fade delay={120} direction="up">
+                  <h3>Future Plans</h3>
+                </Fade>
+                <Fade delay={140} direction="up">
+                  <h4>The AbstractVerse is extending</h4>
+                  </Fade>
+                  <Fade delay={160} direction="up">
+                  <p><strong>Animated series</strong>We are thrilled to announce that we are creating an animated series revolving around AbstracTerra verse. The style is so unique. We will share sketches soon. </p>
+                  </Fade>
+                </div>
+              </li>
+            </ul>  
+
+         </Col>
+      </Row>
+      </MiddleBlockSection>
+
+      
      
     </Container>
 
